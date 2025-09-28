@@ -1,0 +1,31 @@
+class CommentModel {
+  final String id;
+  final String postId;
+  final String authorId;
+  final String text;
+  final DateTime createdAt;
+
+  CommentModel({
+    required this.id,
+    required this.postId,
+    required this.authorId,
+    required this.text,
+    required this.createdAt,
+  });
+
+  Map<String, dynamic> toMap() => {
+    'id': id,
+    'postId': postId,
+    'authorId': authorId,
+    'text': text,
+    'createdAt': createdAt.toUtc().toIso8601String(),
+  };
+
+  factory CommentModel.fromMap(Map<String, dynamic> m) => CommentModel(
+    id: m['id'],
+    postId: m['postId'],
+    authorId: m['authorId'],
+    text: m['text'],
+    createdAt: DateTime.parse(m['createdAt']),
+  );
+}
