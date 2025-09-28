@@ -1,0 +1,7 @@
+{
+  "project_id": "vibeon-project",
+  "app_id": "1:000000000000:ios:abcdef",
+  "database_url": "",
+  "storage_bucket": "vibeon.appspot.com",
+  "gcm_sender_id": "000000000000"
+}
