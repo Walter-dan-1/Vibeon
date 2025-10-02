@@ -19,28 +19,21 @@ void main() async {
 
 class VibeOnApp extends StatelessWidget {
   const VibeOnApp({super.key});
-
   @override
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<AuthService>(create: (_) => AuthService()),
-        Provider<FirestoreService>(create: (_) => FirestoreService()),
-        Provider<StorageService>(create: (_) => StorageService()),
-        Provider<FCMService>(create: (_) => FCMService()),
-        ChangeNotifierProvider<ThemeNotifier>(create: (_) => ThemeNotifier()),
+        ChangeNotifierProvider(create: (_) => AuthService()),
+        Provider(create: (_) => FirestoreService()),
+        Provider(create: (_) => StorageService()),
+        Provider(create: (_) => FCMService()),
       ],
-      child: Consumer<ThemeNotifier>(
-        builder: (context, theme, _) {
-          return MaterialApp(
-            title: 'VibeOn',
-            debugShowCheckedModeBanner: false,
-            theme: AppTheme.lightTheme,
-            darkTheme: AppTheme.darkTheme,
-            themeMode: theme.isDark ? ThemeMode.dark : ThemeMode.light,
-            home: const RootRouter(),
-          );
-        },
+      child: MaterialApp(
+        title: 'VibeOn',
+        theme: AppTheme.lightTheme,
+        darkTheme: AppTheme.darkTheme,
+        themeMode: ThemeMode.system,
+        home: const RootRouter(),
       ),
     );
   }
@@ -48,35 +41,24 @@ class VibeOnApp extends StatelessWidget {
 
 class RootRouter extends StatelessWidget {
   const RootRouter({super.key});
-
   @override
   Widget build(BuildContext context) {
     final auth = Provider.of<AuthService>(context);
-    if (auth.isLoading) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
-    }
-    if (auth.user != null) {
-      return const MainNavigation();
-    }
+    if (auth.isLoading) return const Scaffold(body: Center(child: CircularProgressIndicator()));
+    if (auth.user != null) return const MainNavigation();
     return const LoginScreen();
   }
 }
 
 class MainNavigation extends StatefulWidget {
   const MainNavigation({super.key});
-
   @override
   State<MainNavigation> createState() => _MainNavigationState();
 }
 
 class _MainNavigationState extends State<MainNavigation> {
   int _currentIndex = 0;
-  final screens = const [
-    FeedScreen(),
-    UploadScreen(),
-    ProfileScreen(),
-  ];
-
+  final screens = const [FeedScreen(), UploadScreen(), ProfileScreen()];
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -85,9 +67,9 @@ class _MainNavigationState extends State<MainNavigation> {
         currentIndex: _currentIndex,
         onTap: (i) => setState(() => _currentIndex = i),
         items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "FYP"),
-          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: "Upload"),
-          BottomNavigationBarItem(icon: Icon(Icons.person), label: "Profile"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'FYP'),
+          BottomNavigationBarItem(icon: Icon(Icons.add_box), label: 'Upload'),
+          BottomNavigationBarItem(icon: Icon(Icons.person), label: 'Profile'),
         ],
       ),
     );

@@ -2,7 +2,7 @@
   "project_info": {
     "project_number": "000000000000",
     "project_id": "vibeon-project",
-    "storage_bucket": "vibeon.appspot.com"
+    "storage_bucket": "vibeon-project.appspot.com"
   },
   "client": [],
   "configuration_version": "1"

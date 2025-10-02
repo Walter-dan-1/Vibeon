@@ -1,38 +1,41 @@
 name: vibeon
-description: VibeOn - Music & Video sharing app (expanded)
-publish_to: 'none'
+description: A social music and video platform for upcoming artists.
+publish_to: "none"
 version: 1.0.0+1
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.3.0 <4.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
-  cupertino_icons: ^1.0.2
-  provider: ^6.0.5
-  firebase_core: ^2.15.1
-  firebase_auth: ^4.9.0
-  cloud_firestore: ^4.12.2
-  firebase_storage: ^11.3.2
-  firebase_messaging: ^14.7.5
+  cupertino_icons: ^1.0.6
+  firebase_core: ^2.25.4
+  firebase_auth: ^4.17.5
+  cloud_firestore: ^4.15.8
+  firebase_storage: ^11.6.9
+  firebase_messaging: ^14.7.10
   google_sign_in: ^6.2.1
-  video_player: ^2.7.0
-  chewie: ^1.6.0
-  just_audio: ^0.9.34
-  file_picker: ^5.3.2
-  image_picker: ^1.0.4
-  permission_handler: ^11.1.0
-  connectivity_plus: ^6.0.3
-  share_plus: ^7.2.2
-  intl: ^0.18.1
+  provider: ^6.1.2
+  shared_preferences: ^2.3.3
+  connectivity_plus: ^6.1.0
+  cached_network_image: ^3.3.1
+  video_player: ^2.9.2
+  chewie: ^1.7.1
+  just_audio: ^0.9.37
+  file_picker: ^8.0.2
+  image_picker: ^1.1.2
+  permission_handler: ^11.3.1
+  intl: ^0.19.0
+  uuid: ^3.0.7
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^2.0.1
+  flutter_lints: ^4.0.0
 
 flutter:
   uses-material-design: true
   assets:
     - assets/images/
+    - assets/icons/
